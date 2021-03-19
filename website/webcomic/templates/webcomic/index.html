@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <title>Tramp Webcomic</title>
+    <meta name="description" content="Comic created by Justyna „Tysirr” Romul">
+    <meta name="author" content="Damian Juszczak">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'webcomic/style.css' %}">
+  </head>
+
+  <body>
+    <header>
+      <div id="container-1">
+        <div>
+          <a href="https://www.patreon.com/Tysirr" target="_blank" rel="noopener noreferrer">
+            <img id="patreon-logo" src="{% static 'webcomic/images/patreon_logo.png' %}" alt="Patreon logo">
+            <img id="patreon-caption" src="{% static 'webcomic/images/patreon_caption.svg' %}" alt="You can support me on Patreon caption">
+          </a>
+        </div>
+        <div>
+          <a href="/webcomic">
+            <img id="logo" src="{% static 'webcomic/images/logo.svg' %}" alt="Tramp by Tysirr logo">
+          </a>
+        </div>
+        <div id="lang-switch">
+          <a href="/en">
+            <img src="{% static 'webcomic/images/en_flag.svg' %}" alt="Great Britain flag">
+          </a>
+          <a href="/pl">
+            <img src="{% static 'webcomic/images/pl_flag.svg' %}" alt="Polish flag">
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div id="container-2">
+        <button id="arrow-left">
+          <img src="{% static 'webcomic/images/arrow_left.svg' %}" alt="Left arrow - previous page">
+        </button>
+        <div id="frame">
+          <img id="comic-page" src="{% static 'webcomic/images/PL_1_1.png' %}" alt="Comic page">
+        </div>
+        <button id="arrow-right">
+          <img src="{% static 'webcomic/images/arrow_right.svg' %}" alt="Right arrow - next page">
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <div id="footer">
+        &copy;2021. Comic created by Justyna "Tysirr" Romul. Website made by Damian Juszczak. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

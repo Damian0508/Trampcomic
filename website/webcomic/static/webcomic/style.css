@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+
+#container-1 {
+    max-width: 1400px;
+    margin: 10px auto;
+    display: flex;
+}
+
+#patreon-logo {
+    margin-top: 0px;
+    height: 150px;
+}
+
+#patreon-caption {
+    position: relative;
+    top: 50px;
+}
+
+#logo {
+    margin: 0 150px;
+}
+
+#lang-switch {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+}
+
+#lang-switch > a {
+    margin: 0 10px;
+}
+
+/* main */
+
+#container-2 {
+    max-width: 1250px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#frame {
+    background-image: url("images/frame.svg");
+    height: 1250px;
+    width: 800px;
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+#comic-page {
+    height: 823px;
+    position:relative;
+    top: 228px;
+    left: 109px;
+}
+
+button {
+    height: 226px;
+    margin-top: 455px;
+    opacity: 0.25;
+    border: none;
+    outline:none;
+}
+
+button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* footer */
+
+#footer {
+    max-width: 700px;
+    margin: 30px auto;
+}

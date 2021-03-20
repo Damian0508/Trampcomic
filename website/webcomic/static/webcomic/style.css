@@ -3,10 +3,20 @@
     padding: 0;
 }
 
+.arrow {
+    border: none;
+    outline: none;
+}
+
+.arrow:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 /* header */
 
 #container-1 {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
 }
@@ -23,13 +33,43 @@
 
 
 #logo {
-    margin: 10px 120px;
+    margin: 10px 90px;
     height: 200px;
 }
 
+/* nav */
+
+#nav {
+    margin-top: 60px;
+}
+
+.arrow-small {
+    opacity: 0.40;
+    height: 40px;
+    margin-top: 16px;
+}
+
+.arrow-small > img {
+    height: 40px;
+}
+
+#episode-switch{
+    max-width: 180px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#episode-number {
+    opacity: 0.4;
+    margin: 0 20px;
+    font-family: 'Baloo 2', cursive;
+    font-size: xxx-large;
+}
+
 #lang-switch {
-    margin-top: auto;
-    margin-bottom: auto;
+    position: absolute;
+    margin-top: 85px;
+    margin-left: 1250px;
     display: flex;
 }
 
@@ -40,42 +80,35 @@
 /* main */
 
 #container-2 {
-    max-width: 1250px;
+    max-width: 1450px;
     margin: 0 auto;
     display: flex;
 }
 
 #frame {
     background-image: url("images/frame.png");
-    height: 1250px;
-    width: 800px;
+    height: 1500px;
+    width: 1000px;
     background-position: center;
     background-size: cover;
     margin: 0 auto;
 }
 
 #comic-page {
-    height: 823px;
+    height: 1130px;
     position: relative;
-    top: 228px;
-    left: 109px;
+    top: 227px;
+    left: 100px;
 }
 
 .arrow-big {
+    opacity: 0.30;
     height: 180px;
-    margin-top: 455px;
-    opacity: 0.25;
-    border: none;
-    outline: none;
+    margin-top: 600px;
 }
 
 .arrow-big > img {
     height: 180px;
-}
-
-.arrow-big:hover {
-    opacity: 1;
-    cursor: pointer;
 }
 
 /* footer */
@@ -84,6 +117,6 @@
     opacity: 0.5;
     font-family: 'Baloo 2', cursive;
     font-size: large;
-    max-width: 850px;
-    margin: 30px auto;
+    max-width: 813px;
+    margin: 40px auto;
 }

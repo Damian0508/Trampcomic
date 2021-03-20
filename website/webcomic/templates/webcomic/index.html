@@ -22,35 +22,49 @@
           </a>
         </div>
         <div>
-          <a href="/webcomic">
+          <a href="/">
             <img id="logo" src="{% static 'webcomic/images/logo.png' %}" alt="Tramp by Tysirr logo">
           </a>
         </div>
         <div>
-          <a href="https://www.patreon.com/Tysirr" target="_blank" rel="noopener noreferrer">
+          <a href="https://heylink.me/tysirr/" target="_blank" rel="noopener noreferrer">
             <img id="morlock" src="{% static 'webcomic/images/Morlock.png' %}" alt="Comic hero Morlock with Tyssir's social media link">
           </a>
         </div>
-        <!-- <div id="lang-switch">
-          <a href="/en">
-            <img src="{% static 'webcomic/images/en_flag.svg' %}" alt="Great Britain flag">
-          </a>
-          <a href="/pl">
-            <img src="{% static 'webcomic/images/pl_flag.svg' %}" alt="Polish flag">
-          </a>
-        </div> -->
       </div>
     </header>
 
+    <nav id="nav">
+      <div id="episode-switch">
+        <button class="arrow-small arrow">
+          <img src="{% static 'webcomic/images/arrow_ep_left.png' %}" alt="Left arrow - previous episode">
+        </button>
+        <div id="episode-number">
+          1
+        </div>
+        <button class="arrow-small arrow">
+          <img src="{% static 'webcomic/images/arrow_ep_right.png' %}" alt="Right arrow - next episode">
+        </button>
+      </div>
+      <div id="lang-switch">
+          <a href="/">
+            <img src="{% static 'webcomic/images/en_flag.svg' %}" alt="Great Britain flag">
+          </a>
+          <a href="/">
+            <img src="{% static 'webcomic/images/pl_flag.svg' %}" alt="Polish flag">
+          </a>
+        </div>
+    </nav>
+
     <main>
       <div id="container-2">
-        <button class="arrow-big">
+        <button class="arrow-big arrow">
           <img src="{% static 'webcomic/images/arrow_left.png' %}" alt="Left arrow - previous page">
         </button>
         <div id="frame">
           <img id="comic-page" src="{% static 'webcomic/images/PL_1_0.png' %}" alt="Comic page">
         </div>
-        <button class="arrow-big">
+        <button class="arrow-big arrow">
           <img src="{% static 'webcomic/images/arrow_right.png' %}" alt="Right arrow - next page">
         </button>
       </div>

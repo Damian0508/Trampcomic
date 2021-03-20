@@ -7,22 +7,24 @@
 
 #container-1 {
     max-width: 1400px;
-    margin: 10px auto;
+    margin: 0 auto;
     display: flex;
 }
 
-#patreon-logo {
-    margin-top: 0px;
-    height: 150px;
+#john {
+    height: 200px;
+    opacity: 0.9;
 }
 
-#patreon-caption {
-    position: relative;
-    top: 50px;
+#morlock {
+    height: 200px;
+    opacity: 0.9;
 }
+
 
 #logo {
-    margin: 0 150px;
+    margin: 10px 120px;
+    height: 200px;
 }
 
 #lang-switch {
@@ -44,7 +46,7 @@
 }
 
 #frame {
-    background-image: url("images/frame.svg");
+    background-image: url("images/frame.png");
     height: 1250px;
     width: 800px;
     background-position: center;
@@ -54,20 +56,24 @@
 
 #comic-page {
     height: 823px;
-    position:relative;
+    position: relative;
     top: 228px;
     left: 109px;
 }
 
-button {
-    height: 226px;
+.arrow-big {
+    height: 180px;
     margin-top: 455px;
     opacity: 0.25;
     border: none;
-    outline:none;
+    outline: none;
 }
 
-button:hover {
+.arrow-big > img {
+    height: 180px;
+}
+
+.arrow-big:hover {
     opacity: 1;
     cursor: pointer;
 }
@@ -75,6 +81,9 @@ button:hover {
 /* footer */
 
 #footer {
-    max-width: 700px;
+    opacity: 0.5;
+    font-family: 'Baloo 2', cursive;
+    font-size: large;
+    max-width: 850px;
     margin: 30px auto;
 }

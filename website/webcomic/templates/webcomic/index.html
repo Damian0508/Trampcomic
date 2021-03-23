@@ -47,10 +47,10 @@
         </button>
       </div>
       <div id="lang-switch">
-          <a href="/">
+          <a href="/en/{{episode}}/{{page}}">
             <img src="{% static 'webcomic/images/en_flag.svg' %}" alt="Great Britain flag">
           </a>
-          <a href="/">
+          <a href="/pl/{{episode}}/{{page}}">
             <img src="{% static 'webcomic/images/pl_flag.svg' %}" alt="Polish flag">
           </a>
         </div>
@@ -62,7 +62,7 @@
           <img src="{% static 'webcomic/images/arrow_left.png' %}" alt="Left arrow - previous page">
         </button>
         <div id="frame">
-          <img id="comic-page" src="{% static 'webcomic/images/PL_1_0.png' %}" alt="Comic page">
+          <img id="comic-page" src="{{ path }}" alt="Comic page">
         </div>
         <button class="arrow-big arrow">
           <img src="{% static 'webcomic/images/arrow_right.png' %}" alt="Right arrow - next page">

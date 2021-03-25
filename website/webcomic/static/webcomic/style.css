@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
 .arrow {
     border: none;
     outline: none;
@@ -23,17 +28,13 @@
 }
 
 .hero {
-    width: 100%;
     max-width: 280px;
-    height: auto;
     opacity: 0.9;
 }
 
 #logo {
-    width: 100%;
     max-width: 480px;
-    height: auto;
-    margin: 10px 0px;
+    margin: 10px 0;
 }
 
 /* nav */
@@ -61,7 +62,6 @@
 
 #episode-number {
     opacity: 0.4;
-    margin: 0 20px;
     font-family: 'Baloo 2', cursive;
     font-size: xxx-large;
 }
@@ -84,32 +84,31 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #frame {
-    background-image: url("images/frame.png");
-    height: 1500px;
-    width: 1000px;
-    background-position: center;
-    background-size: cover;
-    margin: 0 auto;
+    max-width: 1000px;
+    height: auto;
 }
 
 #comic-page {
-    height: 1130px;
-    position: relative;
-    top: 227px;
-    left: 100px;
+    width: 100%;
+    height: auto;
+    padding: 23.1% 10.1% 14.6%;
+    box-sizing: border-box;
+    background-image: url(images/frame.png);
+    background-size: cover;
 }
 
 .arrow-big {
     opacity: 0.30;
-    height: 180px;
-    margin-top: 600px;
+    max-height: 180px;
 }
 
 .arrow-big > img {
-    height: 180px;
+    max-width: 160px;
+    min-width: 70px;
 }
 
 /* footer */
@@ -121,4 +120,16 @@
     max-width: 813px;
     margin: 40px auto;
     text-align: center;
+}
+
+@media (orientation: portrait) {
+
+    #nav {
+        margin-top: 20px;
+    }
+
+    #footer {
+        font-size: small;
+        margin: 20px auto;
+    }
 }

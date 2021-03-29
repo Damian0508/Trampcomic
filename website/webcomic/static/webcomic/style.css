@@ -67,9 +67,9 @@
 }
 
 #lang-switch {
-    position: absolute;
-    margin-top: 85px;
-    margin-left: 1250px;
+    position: relative;
+    top: 100%;
+    left: 65%;
     display: flex;
 }
 
@@ -95,13 +95,15 @@
 #comic-page {
     width: 100%;
     height: auto;
-    padding: 23.1% 10.1% 14.6%;
+    padding: 23% 10.1% 14.4%;
     box-sizing: border-box;
     background-image: url(images/frame.png);
     background-size: cover;
 }
 
 .arrow-big {
+    position: relative;
+    bottom: 60px;
     opacity: 0.30;
     max-height: 180px;
 }

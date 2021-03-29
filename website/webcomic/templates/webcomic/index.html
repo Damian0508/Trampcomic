@@ -7,10 +7,12 @@
     <meta name="description" content="Comic created by Justyna „Tysirr” Romul">
     <meta name="author" content="Damian Juszczak">
 
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'webcomic/main.js' %}"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
 
-    {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'webcomic/style.css' %}">
   </head>
 
@@ -37,13 +39,13 @@
 
     <nav id="nav">
       <div id="episode-switch">
-        <button class="arrow-small arrow">
+        <button class="arrow-small arrow", id="previous-episode">
           <img src="{% static 'webcomic/images/arrow_ep_left.png' %}" alt="Left arrow - previous episode">
         </button>
         <div id="episode-number">
-          1
+          {{episode}}
         </div>
-        <button class="arrow-small arrow">
+        <button class="arrow-small arrow", id="next-episode">
           <img src="{% static 'webcomic/images/arrow_ep_right.png' %}" alt="Right arrow - next episode">
         </button>
       </div>
@@ -59,13 +61,13 @@
 
     <main>
       <div id="container-2">
-        <button class="arrow-big arrow">
+        <button class="arrow-big arrow" id="previous-page">
           <img class="responsive" src="{% static 'webcomic/images/arrow_left.png' %}" alt="Left arrow - previous page">
         </button>
         <div id="frame">
             <img id="comic-page" src="{{ path }}" alt="Comic page">
         </div>
-        <button class="arrow-big arrow">
+        <button class="arrow-big arrow" id="next-page">
           <img class="responsive" src="{% static 'webcomic/images/arrow_right.png' %}" alt="Right arrow - next page">
         </button>
       </div>

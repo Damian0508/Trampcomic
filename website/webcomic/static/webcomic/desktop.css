@@ -66,17 +66,6 @@
     font-size: xxx-large;
 }
 
-#lang-switch {
-    position: relative;
-    top: 100%;
-    left: 65%;
-    display: flex;
-}
-
-#lang-switch > a {
-    margin: 0 10px;
-}
-
 /* main */
 
 #container-2 {
@@ -85,32 +74,40 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#frame {
-    max-width: 1000px;
-    height: auto;
+    position: relative;
 }
 
 #comic-page {
-    width: 100%;
-    height: auto;
+    max-width: 1000px;
     padding: 23% 10.1% 14.4%;
     box-sizing: border-box;
     background-image: url(images/frame.png);
     background-size: cover;
 }
 
+#lang-switch {
+    margin-left: 70.8%;
+    margin-right: 30%;
+    position: absolute;
+    top: 6.5%;
+    /* left: 70.8%; */
+    display: flex;
+    justify-content: space-between;
+    max-width: 145px;
+}
+
+/* #lang-switch > a {
+    max-width: 65px;
+} */
+
 .arrow-big {
-    position: relative;
-    bottom: 60px;
     opacity: 0.30;
-    max-height: 180px;
+    background-color: white;
+    margin: 0 10px 9%;
 }
 
 .arrow-big > img {
     max-width: 160px;
-    min-width: 70px;
 }
 
 /* footer */

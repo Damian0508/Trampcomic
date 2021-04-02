@@ -7,12 +7,17 @@ $(document).ready(function(){
                 'element_id': this.id
             },
             success: function(response) {
-                window.history.pushState("", "", response.new_url);
-                // window.history.pushState({"html":document.html,"pageTitle":document.pageTitle}, "", response.new_url);
+                window.history.pushState({path:response.new_url},'', response.new_url);
 
                 $("#comic-page").attr("src", response.path);
+                $("#en-flag").attr("href", '/en/'+ response.episode +'/'+ response.page +'/');
+                $("#pl-flag").attr("href", '/pl/'+ response.episode +'/'+ response.page +'/');
                 $("#episode-number").html(response.episode);
             }
         });
     });
+
+    window.onpopstate = function() {
+        location.reload();
+    };
 });

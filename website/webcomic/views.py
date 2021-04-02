@@ -48,8 +48,8 @@ def select(request, language, episode, page):
         path_str += f'{episode}_{page}.png'
         url_str += f'{episode}/{page}/'
 
-        return JsonResponse({"path": path_str, "new_url": url_str, "episode":episode}, status=200)
+        return JsonResponse({'path': path_str, 'new_url': url_str, 'episode':episode, 'page': page}, status=200)
     else:
         path_str += f'{episode}_{page}.png'
-        return render(request, "webcomic/index.html", {'path': path_str, 'episode': episode, 'page': page})
-
+        # return render(request, "webcomic/desktop.html", {'path': path_str, 'episode': episode, 'page': page})
+        return render(request, "webcomic/mobile.html", {'path': path_str, 'episode': episode, 'page': page})

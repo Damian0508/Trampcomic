@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <title>Tramp Webcomic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comic created by Justyna „Tysirr” Romul">
+  <meta name="author" content="Damian Juszczak">
+
+  {% load static %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{% static 'webcomic/main.js' %}"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'webcomic/desktop.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'webcomic/mobile.css' %}">
+</head>
+
+<body>
+  {% block content %}
+
+  {% endblock %}
+</body>
+
+</html>

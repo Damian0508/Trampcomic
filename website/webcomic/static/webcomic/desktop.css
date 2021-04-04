@@ -1,21 +1,12 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 .responsive {
     width: 100%;
     height: auto;
-}
-
-.arrow {
-    border: none;
-    outline: none;
-}
-
-.arrow:hover {
-    opacity: 1;
-    cursor: pointer;
 }
 
 /* header */
@@ -38,6 +29,16 @@
 }
 
 /* nav */
+
+.arrow {
+  border: none;
+  outline: none;
+}
+
+.arrow:hover {
+  opacity: 1;
+  cursor: pointer;
+}
 
 #nav {
     margin-top: 60px;

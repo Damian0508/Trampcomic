@@ -1,31 +1,31 @@
 * {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .responsive {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* header */
 
 #container-1 {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hero {
-    max-width: 280px;
-    opacity: 0.9;
+  max-width: 280px;
+  opacity: 0.9;
 }
 
 #logo {
-    max-width: 480px;
-    margin: 10px 0;
+  max-width: 480px;
+  margin: 10px 0;
 }
 
 /* nav */
@@ -41,95 +41,104 @@
 }
 
 #nav {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .arrow-small {
-    opacity: 0.40;
-    height: 40px;
-    margin-top: 16px;
+  opacity: 0.40;
+  height: 40px;
+  margin-top: 16px;
 }
 
 .arrow-small > img {
-    height: 40px;
+  height: 40px;
 }
 
 #episode-switch{
-    max-width: 170px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  max-width: 170px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 #episode-number {
-    opacity: 0.4;
-    font-family: 'Baloo 2', cursive;
-    font-size: xxx-large;
+  opacity: 0.4;
+  font-family: 'Baloo 2', cursive;
+  font-size: xxx-large;
 }
 
 /* main */
 
 #container-2 {
-    max-width: 1450px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+  max-width: 1450px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
 
 #comic-page {
-    max-width: 1000px;
-    padding: 23% 10.1% 14.4%;
-    box-sizing: border-box;
-    background-image: url(images/frame.png);
-    background-size: cover;
+  max-width: 1000px;
+  padding: 23% 10.1% 14.4%;
+  box-sizing: border-box;
+  background-image: url(images/frame.png);
+  background-size: cover;
 }
 
 #lang-switch {
-    margin-left: 70.8%;
-    margin-right: 30%;
-    position: absolute;
-    top: 6.5%;
-    /* left: 70.8%; */
-    display: flex;
-    justify-content: space-between;
-    max-width: 145px;
+  margin-left: 70.8%;
+  position: absolute;
+  top: 6.6%;
+  display: flex;
+  max-width: 145px;
+  justify-content: space-between;
 }
 
-/* #lang-switch > a {
-    max-width: 65px;
-} */
+#lang-switch > a > img{
+  width: 65px;
+}
 
 .arrow-big {
-    opacity: 0.30;
-    background-color: white;
-    margin: 0 10px 9%;
+  opacity: 0.30;
+  background-color: white;
+  margin: 0 10px 9%;
 }
 
 .arrow-big > img {
-    max-width: 160px;
+  max-width: 160px;
 }
 
 /* footer */
 
 #footer {
-    opacity: 0.5;
-    font-family: 'Baloo 2', cursive;
-    font-size: large;
-    max-width: 813px;
-    margin: 40px auto;
-    text-align: center;
+  opacity: 0.5;
+  font-family: 'Baloo 2', cursive;
+  font-size: large;
+  max-width: 813px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+@media (max-width: 1370px) {
+  #lang-switch {
+    /* top: 6%; */
+    justify-content: normal;
+  }
+
+  #lang-switch > a > img{
+    width: 4.8vw;
+    margin: 0 0.4vw;
+  }
 }
 
 @media (orientation: portrait) {
+  #nav {
+      margin-top: 20px;
+  }
 
-    #nav {
-        margin-top: 20px;
-    }
-
-    #footer {
-        font-size: small;
-        margin: 20px auto;
-    }
+  #footer {
+      font-size: small;
+      margin: 20px auto;
+  }
 }

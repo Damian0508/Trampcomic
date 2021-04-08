@@ -68,13 +68,13 @@
   background-color: white;
 }
 
-.arrow:hover {
+.arrow:active {
   opacity: 1;
   cursor: pointer;
 }
 
 .arrow-big {
-  opacity: 0.30;
+  opacity: 0.50;
   margin: 0 20px;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .arrow-small {
-  opacity: 0.40;
+  opacity: 0.60;
 }
 
 .arrow-small > img {
@@ -91,7 +91,7 @@
 }
 
 #episode-number {
-  opacity: 0.4;
+  opacity: 0.55;
   font-family: 'Baloo 2', cursive;
   font-size: 9.5vw;
 }

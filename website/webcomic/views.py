@@ -19,7 +19,7 @@ def select(request, language, episode, page):
     if request.is_ajax() and request.method == "GET":
         element_id = request.GET.get('element_id')
         max_episode = 2
-        max_page = 45
+        max_page = 46
         if element_id == 'next-page':
             page += 1
             if page > max_page:
@@ -51,5 +51,9 @@ def select(request, language, episode, page):
         return JsonResponse({'path': path_str, 'new_url': url_str, 'episode':episode, 'page': page}, status=200)
     else:
         path_str += f'{episode}_{page}.png'
-        # return render(request, "webcomic/desktop.html", {'path': path_str, 'episode': episode, 'page': page})
-        return render(request, "webcomic/mobile.html", {'path': path_str, 'episode': episode, 'page': page})
+
+        if request.user_agent.is_mobile or request.user_agent.is_tablet:
+            return render(request, "webcomic/mobile.html", {'path': path_str, 'episode': episode, 'page': page})
+        else:
+            return render(request, "webcomic/desktop.html", {'path': path_str, 'episode': episode, 'page': page})
+

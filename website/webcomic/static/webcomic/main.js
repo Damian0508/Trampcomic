@@ -21,3 +21,12 @@ $(document).ready(function(){
         location.reload();
     };
 });
+
+$(document).keyup(function(e) {
+    if(e.which == 37) {
+        $("#previous-page").click();
+    };
+    if(e.which == 39) {
+        $("#next-page").click();
+    }
+});

@@ -13,9 +13,7 @@ import dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -29,9 +27,18 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.trampcomic.com']
+if DEBUG == True:
+    ALLOWED_HOSTS = []
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'public', 'static')]
+else:
+    ALLOWED_HOSTS = ['.trampcomic.com']
+    WSGI_APPLICATION = 'public_python.application'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -76,18 +83,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'public_python.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -126,14 +130,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-
-# MEDIA_ROOT = BASE_DIR/"webcomic/media/webcomic/comic_pages"
-STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static') 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
 
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'

@@ -90,8 +90,15 @@
   width: 14vw;
 }
 
-#episode-number {
+#nav-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0.55;
   font-family: 'Baloo 2', cursive;
-  font-size: 9.5vw;
+  font-size: 4.5vw;
+}
+
+#nav-text > *{
+  margin: -1vw;
 }

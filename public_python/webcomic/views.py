@@ -22,7 +22,7 @@ def check(episode, page):
             page = 0
         if page < 0:
             page = max_page_2
-    return episode, page
+    return episode, page, max_page_1
 
 def index(request):
     response = redirect('/pl/1/0')
@@ -55,18 +55,21 @@ def select(request, language, episode, page):
         else:
             pass
         
-        episode, page = check(episode, page)
+        episode, page, max_page = check(episode, page)
 
         path_str += f'{episode}_{page}.png'
         url_str += f'{episode}/{page}/'
 
-        return JsonResponse({'path': path_str, 'new_url': url_str, 'episode':episode, 'page': page}, status=200)
+        return JsonResponse({'path': path_str, 'new_url': url_str,
+            'episode':episode, 'page': page, 'max_page': max_page}, status=200)
     else:
-        episode, page = check(episode, page)
+        episode, page, max_page = check(episode, page)
         path_str += f'{episode}_{page}.png'
 
         if request.user_agent.is_mobile or request.user_agent.is_tablet:
-            return render(request, "webcomic/mobile.html", {'path': path_str, 'episode': episode, 'page': page})
+            return render(request, "webcomic/mobile.html", {'path': path_str,
+                'episode': episode, 'page': page, 'max_page': max_page})
         else:
-            return render(request, "webcomic/desktop.html", {'path': path_str, 'episode': episode, 'page': page})
+            return render(request, "webcomic/desktop.html", {'path': path_str,
+                'episode': episode, 'page': page, 'max_page': max_page})
 

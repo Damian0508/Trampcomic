@@ -12,7 +12,8 @@ $(document).ready(function(){
                 $("#comic-page").attr("src", response.path);
                 $("#en-flag").attr("href", '/en/'+ response.episode +'/'+ response.page +'/');
                 $("#pl-flag").attr("href", '/pl/'+ response.episode +'/'+ response.page +'/');
-                $("#episode-number").html(response.episode);
+                $("#episode-number").html('Ep.' + response.episode);
+                $("#page-number").html(response.page + '/'+ response.max_page);
             }
         });
     });

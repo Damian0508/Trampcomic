@@ -51,11 +51,11 @@
     <img src="{% static 'webcomic/images/arrow_ep_left.png' %}" alt="Left arrow - previous episode">
   </button>
   <div id="nav-text">
-    <div id="episode-number">
-      Ep. {{episode}}
+    <div id="episode">
+      <p>Ep.&nbsp;</p><p id="episode-number">{{episode}}</p>
     </div>
     <div id="page-number">
-      {{page}}/{{max_page}}
+      <p>{{page}}/{{max_page}}</p>
     </div>
   </div>
   <button class="arrow-small arrow" , id="next-episode">

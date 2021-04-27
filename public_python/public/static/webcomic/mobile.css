@@ -101,4 +101,5 @@
 
 #nav-text > *{
   margin: -1vw;
+  display: flex;
 }

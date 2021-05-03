@@ -44,7 +44,6 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    'webcomic.apps.WebcomicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_user_agents',
+
+    'webcomic.apps.WebcomicConfig',
 ]
 
 MIDDLEWARE = [
@@ -86,12 +87,12 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -116,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'pl'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Warsaw'
 

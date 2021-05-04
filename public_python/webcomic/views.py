@@ -33,9 +33,11 @@ def select(request, language, episode, page):
     if language == 'pl':
         path_str += 'PL_'
         url_str = '/pl/'
+        hero_path = '/static/webcomic/images/pl_John.png'
     else:
         path_str += 'ENG_'
         url_str = '/en/'
+        hero_path = '/static/webcomic/images/en_John.png'
 
     if request.is_ajax() and request.method == "GET":
         element_id = request.GET.get('element_id')
@@ -61,15 +63,18 @@ def select(request, language, episode, page):
         url_str += f'{episode}/{page}/'
 
         return JsonResponse({'path': path_str, 'new_url': url_str,
-            'episode':episode, 'page': page, 'max_page': max_page}, status=200)
+            'episode':episode, 'page': page, 'max_page': max_page,
+            'hero_path': hero_path}, status=200)
     else:
         episode, page, max_page = check(episode, page)
         path_str += f'{episode}_{page}.png'
 
         if request.user_agent.is_mobile or request.user_agent.is_tablet:
             return render(request, "webcomic/mobile.html", {'path': path_str,
-                'episode': episode, 'page': page, 'max_page': max_page})
+                'episode': episode, 'page': page, 'max_page': max_page,
+                'hero_path': hero_path})
         else:
             return render(request, "webcomic/desktop.html", {'path': path_str,
-                'episode': episode, 'page': page, 'max_page': max_page})
+                'episode': episode, 'page': page, 'max_page': max_page,
+                'hero_path': hero_path})
 

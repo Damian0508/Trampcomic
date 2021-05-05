@@ -12,8 +12,18 @@ class PageAdmin(admin.ModelAdmin):
     }
 
     readonly_fields = ('image_view',)
-    # def save_model(self, request, obj, form, change):
-        # super(MyAdminView, self).save_model(request, obj, form, change)
+    def save_model(self, request, obj, form, change):
+        if change == False:
+            images = request.FILES.getlist('image')
+            episode = obj.episode
+            for image in images:
+                page = Page.objects.create(
+                    episode = episode,
+                    image = image
+                )
+        else:
+            obj.save()
+            
 
     def image_view(self, obj):
         return mark_safe(f'<img src="{obj.image.url}" width="350" height="450" style="object-fit:contain" />')

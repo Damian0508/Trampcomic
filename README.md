@@ -1,5 +1,3 @@
-### Trampcomic
+### Trampcomic - website made in Django framework
 ---
-"Tramp" webcomic -  website made in Django framework
-
-[https://trampcomic.com/](https://trampcomic.com/ "trampcomic.com")
+["Tramp" webcomic](https://trampcomic.com/ "trampcomic.com")

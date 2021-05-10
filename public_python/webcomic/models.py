@@ -12,11 +12,12 @@ class Episode(models.Model):
 
 
 class Page(models.Model):
+    name = models.CharField(max_length=50, null=False, blank=False)
     episode = models.ForeignKey(Episode, on_delete=models.CASCADE, null=False, blank=False)
     image = models.ImageField(upload_to ='webcomic/comic_pages/', null=False, blank=False)
 
     def __str__(self):
-        return os.path.basename(self.image.name)
+        return self.name
 
 
 @receiver(models.signals.post_delete, sender=Page)

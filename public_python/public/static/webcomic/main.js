@@ -13,7 +13,7 @@ $(document).ready(function(){
                 $("#en-flag").attr("href", '/en/'+ response.episode +'/'+ response.page +'/');
                 $("#pl-flag").attr("href", '/pl/'+ response.episode +'/'+ response.page +'/');
                 $("#episode-number").html(response.episode);
-                $("#page-number").html(response.page + '/'+ response.max_page);
+                $("#page-number").html(response.page + '/'+ response.nr_of_pages);
             }
         });
     });

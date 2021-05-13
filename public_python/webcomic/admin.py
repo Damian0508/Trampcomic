@@ -10,8 +10,10 @@ class PageAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.ImageField: {'widget': forms.FileInput(attrs={'multiple': True})},
     }
-# os.path.basename(self.image.name)
+
     readonly_fields = ('image_view','name')
+    list_display = ('name', 'episode', 'image')
+
     def save_model(self, request, obj, form, change):
         if change == False:
             images = request.FILES.getlist('image')

@@ -17,6 +17,8 @@ class Page(models.Model):
     episode = models.ForeignKey(Episode, on_delete=models.CASCADE, null=False, blank=False)
     image = models.ImageField(upload_to ='webcomic/comic_pages/', null=False, blank=False)
 
+    list_display = ('name', 'episode',)
+
     def __str__(self):
         return self.name
 

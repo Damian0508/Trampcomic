@@ -3,13 +3,27 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from .models import Episode, Page
 
-def check(episode, ep_lang_str):
+
+def nr_of_episode_pages(episode, ep_lang_str):
     try:    
         selected_episode = Episode.objects.get(name=f'{ep_lang_str}{episode}')
         nr_of_pages = Page.objects.filter(episode=selected_episode).count()
     except:
         nr_of_pages = 1
     return nr_of_pages
+
+
+def get_page_url(episode, page, ep_lang_str):
+    nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
+    if page > nr_of_pages - 1:
+        page = 0
+        episode += 1
+    try:
+        comic_page = Page.objects.get(name=f'{ep_lang_str}{episode}_{page}.png')
+    except:
+        comic_page = Page.objects.get(name=f'{ep_lang_str}404.png')
+    page_url = comic_page.image.url
+    return page_url
 
 
 def controller(episode, page, ep_lang_str):
@@ -19,19 +33,19 @@ def controller(episode, page, ep_lang_str):
         episode = 1
     if episode <  1:
         episode = nr_of_episodes
-    nr_of_pages = check(episode, ep_lang_str)
     
+    nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
     if page > nr_of_pages - 1:
         page = 0
         episode += 1
     if page < 0:
         if episode > 1:
             episode -= 1
-            nr_of_pages = check(episode, ep_lang_str)
+            nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
             page = nr_of_pages - 1
         else:
             page = 0
-    nr_of_pages = check(episode, ep_lang_str)
+    nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
 
     try:
         comic_page = Page.objects.get(name=f'{ep_lang_str}{episode}_{page}.png')
@@ -40,9 +54,11 @@ def controller(episode, page, ep_lang_str):
     path_str = comic_page.image.url
     return episode, page, nr_of_pages, path_str
 
+
 def index(request):
     response = redirect('/pl/1/0')
     return response
+
 
 def select(request, language, episode, page):
     if language == 'pl':
@@ -73,19 +89,29 @@ def select(request, language, episode, page):
             pass
         
         episode, page, nr_of_pages, path_str = controller(episode, page, ep_lang_str)
+        next_image_path_1 = get_page_url(episode, page+1, ep_lang_str)
+        next_image_path_2 = get_page_url(episode, page+2, ep_lang_str)
+
         url_str += f'{episode}/{page}/'
 
-        return JsonResponse({'path': path_str, 'new_url': url_str,
+        return JsonResponse({'image_path': path_str, 'new_url': url_str,
             'episode':episode, 'page': page, 'nr_of_pages': nr_of_pages-1,
-            'hero_path': hero_path}, status=200)
+            'hero_path': hero_path, 'next_image_path_1': next_image_path_1,
+            'next_image_path_2': next_image_path_2}, status=200)
     else:
         episode, page, nr_of_pages, path_str = controller(episode, page, ep_lang_str)
-        if request.user_agent.is_mobile or request.user_agent.is_tablet:
-            return render(request, "webcomic/mobile.html", {'path': path_str,
-                'episode': episode, 'page': page, 'nr_of_pages': nr_of_pages-1,
-                'hero_path': hero_path})
-        else:
-            return render(request, "webcomic/desktop.html", {'path': path_str,
-                'episode': episode, 'page': page, 'nr_of_pages': nr_of_pages-1,
-                'hero_path': hero_path})
+        next_image_path_1 = get_page_url(episode, page+1, ep_lang_str)
+        next_image_path_2 = get_page_url(episode, page+2, ep_lang_str)
 
+        if request.user_agent.is_mobile or request.user_agent.is_tablet:
+            return render(request, "webcomic/mobile.html", {
+                'image_path': path_str, 'episode': episode, 'page': page,
+                'nr_of_pages': nr_of_pages-1, 'hero_path': hero_path,
+                'next_image_path_1': next_image_path_1,
+                'next_image_path_2': next_image_path_2})
+        else:
+            return render(request, "webcomic/desktop.html", {
+                'image_path': path_str, 'episode': episode, 'page': page,
+                'nr_of_pages': nr_of_pages-1, 'hero_path': hero_path,
+                'next_image_path_1': next_image_path_1,
+                'next_image_path_2': next_image_path_2})

@@ -18,8 +18,12 @@ $(document).ready(function(){
 
                 var next_image1 = new Image();
                 var next_image2 = new Image();
+                var next_image3 = new Image();
+                var next_image4 = new Image();
                 next_image1.src = response.next_image_path_1;
                 next_image2.src = response.next_image_path_2;
+                next_image3.src = response.next_image_path_3;
+                next_image4.src = response.next_image_path_4;
 
             }
         });
@@ -30,11 +34,14 @@ $(document).ready(function(){
     };
 
     window.onload = function(){
-        console.log('now');
         var next_image1 = new Image();
         var next_image2 = new Image();
+        var next_image3 = new Image();
+        var next_image4 = new Image();
         next_image1.src = $("#preload-1").text();
         next_image2.src = $("#preload-2").text();
+        next_image3.src = $("#preload-3").text();
+        next_image4.src = $("#preload-4").text();
     };
 });
 

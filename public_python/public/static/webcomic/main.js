@@ -1,7 +1,26 @@
+load_image_html = (table, table_position) => {
+    let next_image = new Image();
+    next_image.src = $(table[table_position]).text();
+    next_image.onload = function(){
+        if(table_position+1 <= table.length-1){
+            load_image_html(table, table_position+1);
+        }
+    };
+};
+
+load_image_response = (table, table_position) => {
+    let next_image = new Image();
+    next_image.src = table[table_position];
+    next_image.onload = function(){
+        if(table_position+1 <= table.length-1){
+            load_image_response(table, table_position+1);
+        }
+    };
+};
+
 $(document).ready(function(){
 
     $(".arrow").click(function(){
-        // $("#comic-page").css("opacity", "0.5");
         $.ajax({
             url: window.location.pathname,
             data: {
@@ -16,15 +35,13 @@ $(document).ready(function(){
                 $("#episode-number").html(response.episode);
                 $("#page-number").html(response.page + '/'+ response.nr_of_pages);
 
-                var next_image1 = new Image();
-                var next_image2 = new Image();
-                var next_image3 = new Image();
-                var next_image4 = new Image();
-                next_image1.src = response.next_image_path_1;
-                next_image2.src = response.next_image_path_2;
-                next_image3.src = response.next_image_path_3;
-                next_image4.src = response.next_image_path_4;
+                images_src = [
+                    response.next_images_path_dict.image1,
+                    response.next_images_path_dict.image2,
+                    response.next_images_path_dict.image3,
+                    response.next_images_path_dict.image4];
 
+                load_image_response(images_src, 0);
             }
         });
     });
@@ -34,14 +51,8 @@ $(document).ready(function(){
     };
 
     window.onload = function(){
-        var next_image1 = new Image();
-        var next_image2 = new Image();
-        var next_image3 = new Image();
-        var next_image4 = new Image();
-        next_image1.src = $("#preload-1").text();
-        next_image2.src = $("#preload-2").text();
-        next_image3.src = $("#preload-3").text();
-        next_image4.src = $("#preload-4").text();
+        images_src = ["#preload-1","#preload-2","#preload-3","#preload-4"];
+        load_image_html(images_src, 0);
     };
 });
 

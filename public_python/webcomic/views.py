@@ -89,39 +89,31 @@ def select(request, language, episode, page):
             pass
         
         episode, page, nr_of_pages, path_str = controller(episode, page, ep_lang_str)
-        next_image_path_1 = get_page_url(episode, page+1, ep_lang_str)
-        next_image_path_2 = get_page_url(episode, page+2, ep_lang_str)
-        next_image_path_3 = get_page_url(episode, page+3, ep_lang_str)
-        next_image_path_4 = get_page_url(episode, page+4, ep_lang_str)
+        next_images_path_dict = {}
+        for number in range(1,5):
+            next_images_path_dict[f'image{number}'] = \
+                get_page_url(episode, page+number, ep_lang_str)
 
         url_str += f'{episode}/{page}/'
 
         return JsonResponse({'image_path': path_str, 'new_url': url_str,
             'episode':episode, 'page': page, 'nr_of_pages': nr_of_pages-1,
-            'hero_path': hero_path, 'next_image_path_1': next_image_path_1,
-            'next_image_path_2': next_image_path_2,
-            'next_image_path_3': next_image_path_3,
-            'next_image_path_4': next_image_path_4}, status=200)
+            'hero_path': hero_path,
+            'next_images_path_dict': next_images_path_dict}, status=200)
     else:
         episode, page, nr_of_pages, path_str = controller(episode, page, ep_lang_str)
-        next_image_path_1 = get_page_url(episode, page+1, ep_lang_str)
-        next_image_path_2 = get_page_url(episode, page+2, ep_lang_str)
-        next_image_path_3 = get_page_url(episode, page+3, ep_lang_str)
-        next_image_path_4 = get_page_url(episode, page+4, ep_lang_str)
-
+        next_images_path_dict = {}
+        for number in range(1,5):
+            next_images_path_dict[f'image{number}'] = \
+                get_page_url(episode, page+number, ep_lang_str)
+            
         if request.user_agent.is_mobile or request.user_agent.is_tablet:
             return render(request, "webcomic/mobile.html", {
                 'image_path': path_str, 'episode': episode, 'page': page,
                 'nr_of_pages': nr_of_pages-1, 'hero_path': hero_path,
-                'next_image_path_1': next_image_path_1,
-                'next_image_path_2': next_image_path_2,
-                'next_image_path_3': next_image_path_3,
-                'next_image_path_4': next_image_path_4})
+                'next_images_path_dict': next_images_path_dict})
         else:
             return render(request, "webcomic/desktop.html", {
                 'image_path': path_str, 'episode': episode, 'page': page,
                 'nr_of_pages': nr_of_pages-1, 'hero_path': hero_path,
-                'next_image_path_1': next_image_path_1,
-                'next_image_path_2': next_image_path_2,
-                'next_image_path_3': next_image_path_3,
-                'next_image_path_4': next_image_path_4})
+                'next_images_path_dict': next_images_path_dict})

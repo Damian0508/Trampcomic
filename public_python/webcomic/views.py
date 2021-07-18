@@ -15,8 +15,8 @@ def nr_of_episode_pages(episode, ep_lang_str):
 
 def get_page_url(episode, page, ep_lang_str):
     nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
-    if page > nr_of_pages - 1:
-        page = 0
+    if page >= nr_of_pages - 1:
+        page = page - (nr_of_pages - 1)
         episode += 1
     try:
         comic_page = Page.objects.get(name=f'{ep_lang_str}{episode}_{page}.png')
@@ -31,21 +31,24 @@ def controller(episode, page, ep_lang_str):
     nr_of_episodes = Episode.objects.filter(counted=True).count()
     if episode > nr_of_episodes:
         episode = 1
-    if episode <  1:
+        page = 0 
+    if episode < 1:
         episode = nr_of_episodes
     
     nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
     if page > nr_of_pages - 1:
         page = 0
         episode += 1
+        if episode > nr_of_episodes:
+            episode = 1
+            page = 0 
     if page < 0:
-        if episode > 1:
-            episode -= 1
-            nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
-            page = nr_of_pages - 1
+        if episode <= 1:
+            episode = nr_of_episodes
         else:
-            page = 0
-    nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
+            episode -= 1
+        nr_of_pages = nr_of_episode_pages(episode, ep_lang_str)
+        page = nr_of_pages - 1
 
     try:
         comic_page = Page.objects.get(name=f'{ep_lang_str}{episode}_{page}.png')
